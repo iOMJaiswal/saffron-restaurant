@@ -1,0 +1,22 @@
+{
+  "name": "saffron-restaurant",
+  "version": "1.0.0",
+  "description": "Saffron — Where every meal is a memory. An upscale Indian restaurant website.",
+  "type": "module",
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "node server/index.js",
+    "seed": "node server/seed.js",
+    "build": "cd client && npm run build",
+    "start": "NODE_ENV=production node server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "postgres": "^3.4.5",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}
