@@ -58,6 +58,8 @@ router.post('/', async (req, res) => {
         ${occasion_note || null}, ${name}, ${email}, ${phone}, ${special_requests || null}, ${dietaryStr})
       RETURNING *
     `;
+
+    res.status(201).json(booking);
   } catch (error) {
     console.error('Error creating booking:', error);
     res.status(500).json({ error: 'Failed to create booking' });
@@ -82,7 +84,8 @@ router.get('/slots', async (req, res) => {
 
     const countMap = {};
     for (const row of counts) {
-      countMap[row.time] = parseInt(row.count);
+      countMap[row.time] = parseInt(row.count, 10);
+    }
 
     const slots = allSlots.map(slot => ({
       time: slot,
